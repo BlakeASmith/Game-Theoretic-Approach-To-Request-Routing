@@ -24,5 +24,9 @@ st.table(distance_matrix)
 game_ = game.Game(n_user, n_processor, processing_time, propagation_speed, distance_matrix)
 game_.simulate()
 
-for NE in game_.nash_equilibria():
-    st.write(NE)
+st.header("Found Nash Equilibria")
+
+
+for profile, times in game_.nash_equilibria():
+    st.header(f"profile: {profile}")
+    st.write(times)
