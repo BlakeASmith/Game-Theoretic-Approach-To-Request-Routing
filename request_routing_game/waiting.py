@@ -1,11 +1,12 @@
 from typing import List
 from itertools import groupby
+from typing import Dict
 from collections import ChainMap
 
 def waiting_time(
     requests: List[int],
     processing_time: float, 
-    distances: dict[int, float],
+    distances: Dict[int, float],
     propagation_speed: int,
 ):
     """
@@ -16,7 +17,7 @@ def waiting_time(
     :param distances: A list containing the distance of each display computer to the processor.
     :param propagation_speed: The speed at which the signal propagates along the wire.
 
-    :return: A dict associating each request to it's wait time.
+    :return: A Dict associating each request to it's wait time.
     """
 
     prop_delays = {i: distances[i]/propagation_speed for i in requests}
@@ -34,11 +35,11 @@ def waiting_time(
 
 
 def waiting_times_for_profile(
-    profile: dict[int, int],
+    profile: Dict[int, int],
     processing_time: float, 
-    distance_matrix: dict[dict[int, float]],
+    distance_matrix: Dict[int, Dict[int, float]],
     propagation_speed: int,
-) -> dict[int, float]:
+) -> Dict[int, float]:
     """
     Compute waiting times for all users given a profile of the game.
 

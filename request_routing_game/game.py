@@ -1,6 +1,5 @@
-from request_routing_game import permutations, waiting
-from typing import Tuple
-from copy import deepcopy
+import permutations, waiting
+from typing import Tuple, Dict
 from dataclasses import dataclass
 
 @dataclass
@@ -9,7 +8,7 @@ class Game:
     n_processors: int
     processing_time: float
     propagation_speed: int
-    distance_matrix: dict[dict[int, float]]
+    distance_matrix: Dict[int, Dict[int, float]]
 
     def simulate(self):
         self.outcomes = {}
