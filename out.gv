@@ -1,0 +1,43 @@
+digraph G {
+concentrate=true;
+splines="ortho";
+rankdir="LR";
+subgraph legend{
+    rank = min;
+    label = "legend";
+    Legend [shape=none, margin=0, label = <
+        <table cellspacing="0" cellpadding="0" border="1"><tr><td>Code2flow Legend</td></tr><tr><td>
+        <table cellspacing="0">
+        <tr><td>Regular function</td><td width="50px" bgcolor='#cccccc'></td></tr>
+        <tr><td>Trunk function (nothing calls this)</td><td bgcolor='#966F33'></td></tr>
+        <tr><td>Leaf function (this calls nothing else)</td><td bgcolor='#6db33f'></td></tr>
+        <tr><td>Function call</td><td><font color='#cf142b'>&#8594;</font></td></tr>
+        </table></td></tr></table>
+        >];
+}node_829fa4c3 [label="35: check_nash_equilibrium()" name="game::Game.check_nash_equilibrium" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_9d7f6f75 [label="6: waiting_time()" name="waiting::waiting_time" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_b4d1230d [label="28: nash_equilibria()" name="game::Game.nash_equilibria" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
+node_4122f86b [label="37: waiting_times_for_profile()" name="waiting::waiting_times_for_profile" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
+node_b4d1230d -> node_829fa4c3 [color="#cf142b" penwidth="2"];
+node_4122f86b -> node_9d7f6f75 [color="#cf142b" penwidth="2"];
+subgraph cluster_63036d81 {
+    label="File: game";
+    name="game";
+    style="filled";
+    graph[style=dotted];
+    subgraph cluster_98aad93e {
+        node_b4d1230d node_829fa4c3;
+        label="Class: Game";
+        name="Game";
+        style="filled";
+        graph[style=dotted];
+    };
+};
+subgraph cluster_01ce0eaf {
+    node_9d7f6f75 node_4122f86b;
+    label="File: waiting";
+    name="waiting";
+    style="filled";
+    graph[style=dotted];
+};
+}

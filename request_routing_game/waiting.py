@@ -29,7 +29,7 @@ def waiting_time(
         user_prev, w_prev = wait_times[-1]
         delay_prev = prop_delays[user_prev]
         w_next = delay_prev + w_prev + processing_time - delay
-        wait_times.append((user, max(0, w_next)))
+        wait_times.append((user, max(0.0, w_next)))
 
     return {i: w for i,w in wait_times}
 
@@ -52,6 +52,7 @@ def waiting_times_for_profile(
     groups = groupby(profile.items(), key=lambda it: it[1])
 
     mappings = []
+
 
     for processor, group in groups:
         requests = [it[0] for it in group]
