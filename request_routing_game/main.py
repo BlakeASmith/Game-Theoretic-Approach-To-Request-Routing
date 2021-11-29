@@ -67,6 +67,8 @@ elif method == "From CSV":
 
 if distance_matrix:
 
+    st.table(distance_matrix)
+
     D = nx.DiGraph()
 
     n = Network("800px", "800px", notebook=True, heading="")
