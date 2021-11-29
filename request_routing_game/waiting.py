@@ -1,7 +1,7 @@
 from typing import List
 from itertools import groupby
 from typing import Dict
-from collections import ChainMap
+from collections import ChainMap, defaultdict
 
 def waiting_time(
     requests: List[int],
@@ -49,13 +49,15 @@ def waiting_times_for_profile(
 
     :return: A Mapping[int, float] associating users to the waiting time during this game.
     """
-    groups = groupby(profile.items(), key=lambda it: it[1])
+    groups = defaultdict(lambda: [])
+
+    for u, p in profile.items():
+        groups[p].append(u)
 
     mappings = []
 
 
-    for processor, group in groups:
-        requests = [it[0] for it in group]
+    for processor, requests in groups. items():
 
         waiting_times = waiting_time(
             requests,

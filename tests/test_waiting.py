@@ -51,4 +51,18 @@ def test_game():
     for equilibria in g.nash_equilibria():
         print(equilibria)
 
-    raise ValueError()
+
+def test_no_fake_zero_equilibria():
+    times = waiting.waiting_times_for_profile(
+        {
+            0: 0, 1: 1, 2: 0, 3: 1
+        },
+        1.0,
+        {
+            0: {0:1, 1:1, 2:1, 3:1},
+            1: {0:1, 1:1, 2:1, 3:1}
+        },
+        1
+    )
+
+    assert list(times.values()) != [0.0, 0.0, 0.0, 0.0]

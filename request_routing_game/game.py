@@ -1,4 +1,4 @@
-import permutations, waiting
+from request_routing_game import  permutations, waiting
 from typing import Tuple, Dict
 from dataclasses import dataclass
 
