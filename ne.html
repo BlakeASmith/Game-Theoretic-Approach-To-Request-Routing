@@ -12,8 +12,8 @@
 <style type="text/css">
 
         #mynetwork {
-            width: 800px;
-            height: 800px;
+            width: 600px;
+            height: 400px;
             background-color: #ffffff;
             border: 1px solid lightgray;
             position: relative;
@@ -50,8 +50,8 @@
         
 
         // parsing and collecting nodes and edges from the python
-        nodes = new vis.DataSet([{"color": "orange", "id": "proc 0", "label": "proc 0", "shape": "dot", "size": 10}, {"id": "user 0", "label": "user 0", "shape": "dot", "size": 10}, {"id": "user 1", "label": "user 1", "shape": "dot", "size": 10}, {"id": "user 2", "label": "user 2", "shape": "dot", "size": 10}, {"id": "user 3", "label": "user 3", "shape": "dot", "size": 10}, {"id": "user 4", "label": "user 4", "shape": "dot", "size": 10}, {"id": "user 5", "label": "user 5", "shape": "dot", "size": 10}]);
-        edges = new vis.DataSet([{"from": "proc 0", "label": 7.0, "length": 69.93389265049665, "to": "user 0", "weight": 1}, {"from": "proc 0", "label": 9.2, "length": 92.43839894983935, "to": "user 1", "weight": 1}, {"from": "proc 0", "label": 4.4, "length": 44.16689259435927, "to": "user 2", "weight": 1}, {"from": "proc 0", "label": 11.2, "length": 111.64291270217927, "to": "user 3", "weight": 1}, {"from": "proc 0", "label": 2.0, "length": 19.659635992608308, "to": "user 4", "weight": 1}, {"from": "proc 0", "label": 0.0, "length": 0.0, "to": "user 5", "weight": 1}]);
+        nodes = new vis.DataSet([{"color": "orange", "id": "proc 1", "label": "proc 1", "shape": "dot", "size": 10}, {"id": "user 0", "label": "user 0", "shape": "dot", "size": 10}, {"id": "user 3", "label": "user 3", "shape": "dot", "size": 10}, {"id": "user 5", "label": "user 5", "shape": "dot", "size": 10}, {"color": "orange", "id": "proc 0", "label": "proc 0", "shape": "dot", "size": 10}, {"id": "user 1", "label": "user 1", "shape": "dot", "size": 10}, {"id": "user 2", "label": "user 2", "shape": "dot", "size": 10}, {"id": "user 4", "label": "user 4", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"from": "proc 1", "label": 1.5, "length": 14.924385688906998, "to": "user 0", "weight": 1}, {"from": "proc 1", "label": 0.0, "length": 0.0, "to": "user 3", "weight": 1}, {"from": "proc 1", "label": 2.2, "length": 21.673269913222164, "to": "user 5", "weight": 1}, {"from": "proc 0", "label": 0.0, "length": 0.0, "to": "user 1", "weight": 1}, {"from": "proc 0", "label": 0.0, "length": 0.0, "to": "user 2", "weight": 1}, {"from": "proc 0", "label": 4.9, "length": 49.30329698998263, "to": "user 4", "weight": 1}]);
 
         // adding nodes and edges to the graph
         data = {nodes: nodes, edges: edges};

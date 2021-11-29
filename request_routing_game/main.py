@@ -8,12 +8,14 @@ from pyvis.network import Network
 import game 
 import time
 from pathlib import Path
+import matplotlib.pyplot as plt
 import csv
+import vis
 
 st.title("Game Theoretic Request Routing")
 
-processing_time = st.number_input(label="Processing Time (seconds):", value=0.5, step=0.25)
-propagation_speed = st.number_input(label="Propagation Speed (km/s):", value=1, step=1)
+processing_time = st.number_input(label="Processing Time (seconds):", value=5.0, step=0.25)
+propagation_speed = st.number_input(label="Propagation Speed (km/s):", value=1.0, step=0.5)
 
 st.header("Distance Matrix (Users x Processors)")
 
@@ -103,7 +105,7 @@ if distance_matrix:
 
     st.header(f"Found {len(equilibria)} Nash Equilibria from {len(game_.outcomes)} profiles in {time2-time1} seconds")
 
-    vis = st.checkbox(label=f"Visualize NE?")
+    should_vis = st.checkbox(label=f"Visualize NE?")
 
     for profile, times in equilibria:
         ne_table = {
@@ -116,7 +118,10 @@ if distance_matrix:
         styler = df.style.hide_index()
         st.write(styler.to_html(), unsafe_allow_html=True)
 
-        if vis:
+        if should_vis:
+            st.header("Total Request Times")
+            tl = vis.timeline(profile, times, game_)
+            st.pyplot(tl)
             g = nx.Graph()
             for user, proc in enumerate(profile):
                 g.add_node(f"proc {proc}", color="orange")
@@ -124,7 +129,7 @@ if distance_matrix:
                 
 
 
-            ne = Network("800px", "800px", notebook=True, heading="")
+            ne = Network("400px", "600px", notebook=True, heading="")
             ne.from_nx(g)
             ne.show('ne.html')
 
